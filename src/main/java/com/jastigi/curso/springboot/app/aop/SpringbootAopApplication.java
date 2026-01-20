@@ -1,4 +1,4 @@
-package com.jastigi.curso.springboot.app.aop.springboot_aop;
+package com.jastigi.curso.springboot.app.aop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.jastigi.curso.springboot.app.aop.springboot_aop.services;
+package com.jastigi.curso.springboot.app.aop.services;
 
 public interface GreetingService {
 

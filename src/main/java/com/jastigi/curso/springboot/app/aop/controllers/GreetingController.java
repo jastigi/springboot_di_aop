@@ -1,8 +1,8 @@
-package com.jastigi.curso.springboot.app.aop.springboot_aop.controllers;
+package com.jastigi.curso.springboot.app.aop.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jastigi.curso.springboot.app.aop.springboot_aop.services.GreetingService;
+import com.jastigi.curso.springboot.app.aop.services.GreetingService;
 
 import java.util.Collections;
 

@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
@@ -22,7 +23,12 @@ public class GreetingAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Before("execution(* com.jastigi.curso.springboot.app.aop.services.GreetingService.*(..))")
+    @Pointcut("execution(* com.jastigi.curso.springboot.app.aop.services.GreetingService.*(..))")
+    private void greetingLoggerPointcut() {
+
+    }
+
+    @Before("greetingLoggerPointcut()")
     public void loggerBefore(JoinPoint joinPoint) {
 
         String method = joinPoint.getSignature().getName();
@@ -32,7 +38,7 @@ public class GreetingAspect {
 
     }
 
-    @After("execution(* com.jastigi.curso.springboot.app.aop.services.GreetingService.*(..))")
+    @After("greetingLoggerPointcut()")
     public void loggerAfter(JoinPoint joinPoint) {
 
         String method = joinPoint.getSignature().getName();
@@ -42,7 +48,7 @@ public class GreetingAspect {
 
     }
 
-    @AfterReturning("execution(* com.jastigi.curso.springboot.app.aop.services.GreetingService.*(..))")
+    @AfterReturning("greetingLoggerPointcut()")
     public void loggerAfterReturning(JoinPoint joinPoint) {
 
         String method = joinPoint.getSignature().getName();
@@ -52,7 +58,7 @@ public class GreetingAspect {
 
     }
 
-    @AfterThrowing("execution(* com.jastigi.curso.springboot.app.aop.services.GreetingService.*(..))")
+    @AfterThrowing("greetingLoggerPointcut()")
     public void loggerAfterThrowing(JoinPoint joinPoint) {
 
         String method = joinPoint.getSignature().getName();
@@ -62,7 +68,7 @@ public class GreetingAspect {
 
     }
 
-    @Around("execution(* com.jastigi.curso.springboot.app.aop.services.*.*(..))")
+    @Around("greetingLoggerPointcut()")
     public Object loggerAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
         String method = joinPoint.getSignature().getName();
